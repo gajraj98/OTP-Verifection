@@ -4,7 +4,8 @@ import hbs from 'hbs';
 import routes from './Controller/main.js';
 import mongodb from 'mongodb';
 import dao from './Dao/numbers.js'
-const app = express()
+const PORT = process.env.PORT || 5000;
+const app = express();
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({
@@ -30,6 +31,6 @@ mongodbClient.connect(url,{
     console.log('Db connected');
 })
 
-app.listen(3000,()=>{
+app.listen(PORT,()=>{
     console.log('Application started')
 })
